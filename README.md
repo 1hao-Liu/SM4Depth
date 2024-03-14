@@ -2,9 +2,9 @@
   <h1 align="center">
   <img src="./files/sm4depth_logo.png" width="30">
   <!-- Indoor Obstacle Discovery on Reflective Ground via Monocular Camera -->
-  SM<sup>4</sup>Depth</br>
-    <u>S</u>eamless <u>M</u>onocular <u>M</u>etric Depth Estimation across <u>M</u>ultiple Scenes and Cameras by One <u>M</u>odel
-    </h1>
+  SM<sup>4</sup>Depth</h1>
+    <h2><u>S</u>eamless <u>M</u>onocular <u>M</u>etric Depth Estimation across <u>M</u>ultiple Scenes and Cameras by One <u>M</u>odel</h2>
+    
   <p align="center">
     <a href="https://github.com/1hao-Liu"><strong>Yihao Liu<sup>*</sup></strong></a>
     ·
