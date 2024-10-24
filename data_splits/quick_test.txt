@@ -1,0 +1,1 @@
+/path/to/rgb.jpg /folder/to/save/depth focal_length_x focal_length_y

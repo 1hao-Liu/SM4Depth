@@ -1,0 +1,10 @@
+--model_name sm4depth
+--encoder base07
+--kbins 4
+--dataset multi
+--input_height 424
+--input_width 564
+
+--filenames_file_eval /<code_root>/SM4Depth/data_splits/multi_test_files_with_gt_only_diode_indoor.txt
+--min_depth_eval 1e-3
+--max_depth_eval 10

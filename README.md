@@ -3,17 +3,23 @@
   <img src="./files/sm4depth_logo.png" width="30">
   <!-- Indoor Obstacle Discovery on Reflective Ground via Monocular Camera -->
   SM<sup>4</sup>Depth</h1>
-    <h2 align="center"><u>S</u>eamless <u>M</u>onocular <u>M</u>etric Depth Estimation</br>across <u>M</u>ultiple Scenes and Cameras by One <u>M</u>odel</h2>
+    <h1 align="center"><u>S</u>eamless <u>M</u>onocular <u>M</u>etric Depth Estimation across</br><u>M</u>ultiple Scenes and Cameras by One <u>M</u>odel</h1>
     
   <p align="center">
-    <a href="https://github.com/1hao-Liu"><strong>Yihao Liu<sup>*</sup></strong></a>
+    <a href="https://github.com/1hao-Liu"><strong>Yihao Liu<sup>✝</sup></strong></a>
     ·
-    <a href="https://xuefeng-cvr.github.io"><strong>Feng Xue<sup>*</sup></strong></a>
+    <a href="https://xuefeng-cvr.github.io"><strong>Feng Xue<sup>✝</sup></strong></a>
     ·
-    <a href="https://teacher.bupt.edu.cn/mal"><strong>Anlong Ming</strong></a>
+    <a href="https://teacher.bupt.edu.cn/mal"><strong>Anlong Ming<sup>*</sup></strong></a>
+    ·
+    <strong>Mingshuai Zhao</strong>
+    ·
+    <a href="https://teacher.bupt.edu.cn/mahuadong/en/index.htm"><strong>Huadong Ma</strong></a>
+    ·
+    <a href="https://disi.unitn.it/~sebe/"><strong>Nicu Sebe</strong></a>
   </p>
-  <p align="center">(* denotes equal contribution)</p>
-  <h3 align="center"><a href="https://arxiv.org/abs/2403.08556">arXiv</a> | <a href="https://xuefeng-cvr.github.io/SM4Depth">Project Page</a></h3>
+  <p align="center">(✝ denotes equal contribution; * denotes corresponding author)</p>
+  <h3 align="center"><a href="https://arxiv.org/abs/2403.08556v2">arXiv</a> | <a href="https://xuefeng-cvr.github.io/SM4Depth">Project Page</a></h3>
   <div align="center"></div>
 </p>
 <p align="center">
@@ -26,9 +32,11 @@
 
 ## News
 
-- [x] 2024.3.14 The paper has been released on arXiv.
+- [ ]  The code of training will be released.
+- [x] `2024.10.24` The code of test has been released.
+- [x] `2024.03.14` The paper has been released on arXiv.
 
-# ⭐️⭐️ Code and datasets will be released soon !⭐️⭐️
+<!-- # ⭐️⭐️ Code and datasets will be released soon !⭐️⭐️ -->
 
 
 # Introduction
@@ -51,10 +59,11 @@ Telecommunications (BUPT) by the ZED2. It also contains the re-generated depth m
 from [CreStereo](https://github.com/megvii-research/CREStereo) and the sky masks from [ViT-Adapter](https://github.com/czczup/ViT-Adapter).
 The color and depth streams are captured with the focal
 length of **1091.517** and the baseline of **120.034mm**.
+More visualization can be found in the [project page](https://xuefeng-cvr.github.io/SM4Depth).
 
 # Environments setup
 
-Following SM4Depth, you need **an NVIDIA 3090** (or a GPU with memory > 24G) and **400G** of space for the training sets.
+Following SM4Depth, you need **an NVIDIA 3090** (or a GPU with memory > 24G) and **400G** of space for the training sets (will be given).
 
 ```bash
 # create conda environment
@@ -107,7 +116,8 @@ depthmap = np.asarray(depth, dtype=np.float32) * 1.2231 / 256.0
 
 # Inference (quick start)
 
-Please check the content of [configs/test.txt](configs/test.txt) and fill in the image's info in [data_splits/quick_test.txt](data_splits/quick_test.txt) before you use it for the first time
+Please check the content of [configs/test.txt](configs/test.txt) and fill in the image's info in [data_splits/quick_test.txt](data_splits/quick_test.txt) before you use it for the first time.
+**Before that, please download the pre-trained ckpt from the [google drive](https://drive.google.com/file/d/1ModtPQrsPbyVMDA4lVVEL-D1OlMemK0a/view?usp=sharing) and [Baidu Netdisk](https://pan.baidu.com/s/1n1A2s8HqY806oRdbmQnsiA?pwd=9vhg).**
 
 ```bash
 conda activate sm4depth
@@ -144,6 +154,15 @@ This repository is released under the Apache 2.0 license as found in the [LICENS
 # Citation
 
 If you use SM4Depth, please consider citing:
+```
+@inproceedings{liu2024sm4depth,
+    author    = {Liu, Yihao and Xue, Feng and Ming, Anlong and Zhao, Mingshuai and Ma, Huadong and Sebe, Nicu},
+    title     = {SM4Depth: Seamless Monocular Metric Depth Estimation across Multiple Cameras and Scenes by One Model},
+    booktitle = {Proceedings of the 32nd ACM International Conference on Multimedia (MM '24)},
+    year      = {2024},
+    publisher = {ACM}
+}
+```
 
 
 **Acknowledgments:**
