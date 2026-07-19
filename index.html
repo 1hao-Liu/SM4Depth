@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SM4Depth</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./assets/css/twentytwenty.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="icon" href="./img/sm4depth/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./assets/js/fontawesome.all.min.js"></script>
+  <script src="./assets/js/bulma-carousel.min.js"></script>
+  <script src="./assets/js/bulma-slider.min.js"></script>
+  <script src="./assets/js/jquery-3.2.1.min.js"></script>
+  <script src="./assets/js/jquery.event.move.js"></script>
+  <script src="./assets/js/jquery.twentytwenty.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    body {
+      /* font-family: 'Poppins', sans-serif; */
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+
+    /* Header styling */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff1f1;
+      color: #8a0000;
+      padding: 2rem;
+    }
+
+    #logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .link-block a {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      justify-content: flex-end;
+    }
+
+    .author-block {
+      display: inline-block;
+    }
+
+    nav li {
+      margin: 0 1rem;
+    }
+
+    /* Heading styling */
+    h1,
+    h2 {
+      text-align: center;
+      margin: 2rem 1rem;
+      font-weight: bold;
+      color: #2E2F23
+        /* #B9C78D; */
+    }
+
+    /* Paragraph styling */
+    p {
+      font-size: 1.2rem;
+      margin: 2rem 0;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    /* Code block styling */
+    pre {
+      text-justify: inter-word;
+      text-align: justify;
+      font-size: 0.8rem;
+      margin: 2rem 0;
+      background-color: #f5f5f5;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    /* Video container styling */
+    #video {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    #maintext {
+      margin-left: 200px;
+      margin-right: 200px;
+    }
+
+
+    #thanks {
+      text-align: justify;
+    }
+
+    iframe {
+      border: none;
+      max-width: 100%;
+    }
+
+    /* Centered content styling */
+    .center {
+      text-align: center;
+    }
+
+    /* Image styling */
+    img {
+      display: block;
+      margin: auto;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    }
+
+    /* Link styling */
+    a {
+      color: hsl(0, 0%, 32%);
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    a:hover {
+      color: #658873;
+    }
+
+    /* Button styling */
+    button {
+      background-color: #02a828;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #f9a602;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="logo" style="display: flex; align-items: center;">
+      <img id="painting_icon" width="7%" src="./img/sm4depth_logo.png"
+        style=" margin-right: 14px; margin-left: 30px;position:relative; top: 0px;">
+      SM\(^4\)Depth
+    </div>
+    <nav>
+      <ul>
+        <li><a href="https://xuefeng-cvr.github.io/">Home</a></li>
+        <li><a href="http://www.vrobotit.cn/">Laboratory</a></li>
+        <li><a href="mailto:xuefengbupt@gmail.com">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1 class="title is-3 publication-title">
+    <b style="color: rgb(216, 0, 0);">SM\(^4\)Depth</b>: <b style="color: rgb(216, 0, 0);">S</b>eamless <b
+      style="color: rgb(216, 0, 0);">M</b>onocular <b style="color: rgb(216, 0, 0);">M</b>etric <b
+      style="color: rgb(216, 0, 0);">D</b>epth Estimation</br>across <b style="color: rgb(216, 0, 0);">M</b>ultiple
+    Cameras and Scenes by One <b style="color: rgb(216, 0, 0);">M</b>odel
+  </h1>
+  <!-- <h2><b>TPAMI</b></h2> -->
+  <div id="authors" style="text-align: center; justify-content: center; font-size: 1rem;">
+
+    <span class="author-block">
+      <a href="">Yihao Liu ✝</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+
+    <span class="author-block">
+      <a href="https://xuefeng-cvr.github.io">Feng Xue ✝</a><sup>1,2
+      </sup></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+
+    <span class="author-block">
+      <a href="https://teacher.bupt.edu.cn/mal">Anlong Ming</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+
+    <span class="author-block">
+      <a href="">Mingshuai Zhao</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+
+    <span class="author-block">
+      <a href="https://teacher.bupt.edu.cn/mahuadong/en/index.htm">Huadong Ma</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+
+    <span class="author-block">
+      <a href="https://disi.unitn.it/~sebe/">Nicu Sebe</a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+
+    <div>
+      <span class="author-block"><sup>1</sup>Beijing University of Posts and Telecommunications</span>&nbsp;&nbsp;
+      <span class="author-block"><sup>2</sup>University of Trento</span>
+    </div>
+
+    <div class="column is-full_width">
+      <h5>(✝ Both authors contributed equally to this research)</h2>
+        <!-- <h5>(✝ Corresponding Author)</h2> -->
+    </div>
+    <h2><b> ACM MultiMedia (MM) 2024</b></h2>
+  </div>
+
+  <div class="column has-text-centered">
+    <div class="publication-links">
+      <!-- PDF Link. -->
+      <!-- <span class="link-block">
+                <a href="https://link.springer.com/article/10.1007/s11263-023-01925-4" target="_blank"
+                    class="button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fa fa-link"></i>
+                    </span>
+                    <span>Paper</span>
+                </a>
+            </span> -->
+      <span class="link-block">
+        <a href="https://arxiv.org/abs/2403.08556" target="_blank" class="button is-normal is-rounded is-dark">
+          <span class="icon">
+            <i class="fas fa-file-pdf"></i>
+          </span>
+          <span>arXiv</span>
+        </a>
+      </span>
+      <span class="link-block">
+        <a href="" target="_blank" class="button is-normal is-rounded is-dark">
+          <span class="icon">
+            <i class="fa fa-database"></i>
+          </span>
+          <span>BUPT-Depth</span>
+        </a>
+      </span>
+      <!-- <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                </a>
+            </span> -->
+      <!-- Poster Link. -->
+      <!-- <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-palette"></i>
+                    </span>
+                    <span>Poster</span>
+                </a>
+            </span> -->
+      <!-- Code Link. -->
+      <span class="link-block">
+        <a href="https://github.com/1hao-Liu/SM4Depth" target="_blank"
+          class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>Code</span>
+        </a>
+      </span>
+    </div>
+
+  </div>
+
+
+  <div id="demo" style="display: flex; justify-content: center; margin-bottom: 20px; text-align: center;">
+    <img src="img/sm4depth_intro.jpg" width="80%" ">
+    </div>
+
+    <p style=" text-align: center;">
+    <strong>SM\(^4\)Depth</strong> is an approach to predict metric depth in never-seen-before scenes but is only
+    trained on 150K RGB-D pairs.
+    </p>
+
+
+    <section class="hero is-light is-small">
+      <h2>Visualization Comparison between SM\(^4\)Depth and ZoeDepth</h2>
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel-horizontal" class="carousel results-carousel">
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-1.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-1.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-1.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-1.jpg">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-2.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-2.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-2.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-2.jpg">
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-3.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-3.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-3.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-3.jpg">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-4.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-4.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-4.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-4.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-5.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-5.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-5.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-5.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-6.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-6.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-6.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-6.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-7.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-7.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-7.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-7.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-8.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-8.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-8.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-8.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-9.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-9.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-9.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-9.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-10.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-10.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-10.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-10.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-11.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-11.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-11.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-11.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-12.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-12.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-12.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-12.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-13.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-13.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-13.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-13.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-14.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-14.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-14.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-14.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-15.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-15.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-15.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-15.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-16.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-16.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-16.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-16.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-17.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-17.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-17.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-17.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-18.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-18.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-18.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-18.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-19.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-19.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-19.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-19.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="twoitem">
+              <div class="twentytwenty-container twentytwenty-container-top">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/rgb/rgb-20.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours/ours-20.jpg">
+                </div>
+              </div>
+              <div class="twentytwenty-container twentytwenty-container-bottom">
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/zoed/zoed-20.jpg">
+                </div>
+                <div class="cmpcontent">
+                  <img src="./img/sm4depth/ours_dist/ours_dist-20.jpg">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      $(window).on('load', function () {
+        bulmaCarousel.attach('#results-carousel-horizontal', {
+          slidesToScroll: 1,
+          slidesToShow: 5,
+          loop: true,
+          autoplay: true,
+        });
+        bulmaCarousel.attach('#results-carousel-vertical', {
+          slidesToScroll: 1,
+          slidesToShow: 5,
+          loop: true,
+          autoplay: true,
+        });
+        $(".twentytwenty-container-top").twentytwenty({
+          before_label: 'RGB',
+          after_label: 'Ours',
+          default_offset_pct: 0.5,
+        });
+        $(".twentytwenty-container-bottom").twentytwenty({
+          before_label: 'ZoeDepth',
+          after_label: 'Ours',
+          default_offset_pct: 0.5,
+        });
+      });
+    </script>
+
+    <div id="maintext">
+      <h2>Depth and Distribution Visualizations on Real-world Videos </h2>
+      <p>
+        <b>Note:</b> The video was recorded by Huawei Mate40 (\(4K@30FPS\)), and the focal length is \(f_x=3278.24\),
+        \(f_y=3278.13\).
+        We employ the officially provided code of all methods in this comparison.
+        Due to the lack of ground truth depth, this qualitative comparison is for reference only.
+      </p><br>
+      <!-- <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+        <source src="./img/sm4depth/videos/PP-video1.mov" type="video/mp4">
+      </video> -->
+      <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+        <source src="./img/sm4depth/videos/PP-video2.mov" type="video/mp4">
+      </video>
+      <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+        <source src="./img/sm4depth/videos/PP-video3.mov" type="video/mp4">
+      </video>
+      <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+        <source src="./img/sm4depth/videos/PP-video4.mov" type="video/mp4">
+      </video>
+      <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+        <source src="./img/sm4depth/videos/PP-video5.mov" type="video/mp4">
+      </video>
+
+    </div>
+
+    <div style="overflow: hidden">
+      <h2>Advantages</h2>
+      <div class="video-grid-3">
+        <h3 class="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lower Error in Scale and Shift</h3>
+        <h3 class="center">0.15M vs 800M Training Pairs</h3>
+        <h3 class="center">Consistent Results in indoors/outdoors</h3>
+      </div>
+      <div class="video-grid-3">
+        <img src="./img/sm4depth/lower_error.jpg" width="100%">
+        <img src="./img/sm4depth/lower_data_dependency.png" width="100%">
+        <img src="./img/sm4depth/consistent_accuracy.png" width="100%">
+        <!-- <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./img/sm4depth/videos/demo6.mov" type="video/mp4">
+        </video> -->
+      </div>
+      <div class="video-grid-3">
+        <div style="margin: 0 1rem;">
+          <p style="font-size: 16px;">Real-world scenes vary widely in depth, making models tend to focus on specific
+            scenes and causing inconsistent accuracy across scenes. Tthe previous works suffered from large accuracy
+            fluctuations and high average errors, while our method reduces the errors.</p>
+        </div>
+
+        <div style="margin: 0 1rem;">
+          <p style="font-size: 16px;">Compared to Metric3D, SM\(^4\)Depth performs better on most datasets, (i.e., SUN
+            RGB-D, ETH3D, DIODE, and DDAD) and similar on iBims-1, but is only trained <b>150K</b> images, which proves
+            the effectiveness of SM\(^4\)Depth.</p>
+        </div>
+
+        <div style="margin: 0 1rem;">
+          <p style="font-size: 16px;">All the improvements are designed to ensure that SM\(^4\)Depth can obtain stable
+            metric scales in multi-scene seamless videos. The results show that SM\(^4\)Depth can achieve consistent
+            metric depth accuracy across both indoor and outdoor scenes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="maintext">
+      <h2>Abstract</h2>
+      <p style="font-size: 17px;">
+        The generalization of monocular metric depth estimation (MMDE) has been a longstanding challenge. Recent methods
+        made progress by combining relative and metric depth or aligning input image focal length. However, they are
+        still beset by the challenges in camera, scene, and data levels: (1) Sensitivity to different cameras; (2)
+        Inconsistent accuracy across scenes; (3) Reliance on massive training data. This paper proposes SM\(^4\)Depth, a
+        seamless MMDE method, to address all the issues above within a single network. First, we reveal that a
+        consistent field of view (FOV) is the key to resolve "metric ambiguity" across <b>cameras</b>, which guides
+        us to propose a more straightforward preprocessing unit. Second, to achieve consistently high accuracy across
+        <b>scenes</b>, we explicitly model the metric scale determination as discretizing the depth interval into bins
+        and propose
+        variation-based unnormalized depth bins. This method bridges the depth gap of diverse scenes by reducing the
+        ambiguity of the conventional metric bin. Third, to reduce the reliance on massive training <b>data</b>, we
+        propose a "divide and conquer" solution. Instead of estimating directly from the vast solution space, the
+        correct metric bins are estimated from multiple solution sub-spaces for complexity reduction. Finally, with just
+        150K RGB-D pairs and a consumer-grade GPU for training, SM\(^4\)Depth achieves state-of-the-art performance on
+        most previously unseen datasets, especially surpassing ZoeDepth and Metric3D on mRI\(_\theta\).
+      </p>
+    </div>
+
+
+    <div style="height: 20px;"></div>
+
+    <div id="maintext">
+      <h2>Zero-shot Metric Depth Estimation</h2>
+      <img src="./img/sm4depth/zero_shot_performance.png">
+    </div>
+
+    <div id="maintext">
+      <h2>BUPT Depth dataset (cut-free indoor-outdoor video) </h2>
+
+      <img src="./img/sm4depth/buptdepth.jpg" width="50%">
+
+      <p style="font-size: 17px;"> The BUPT Depth dataset is proposed to evaluate the consistency in accuracy across
+        indoor and outdoor scenes, including <i>streets</i> , <i>restaurants</i>, <i>classroom</i>, <i>lounges</i>, etc.
+        It consists of <b>14,932</b> continuous RGB-D pairs captured on the campus of Beijing University of Posts and
+        Telecommunications (BUPT) by a <b>ZED2</b> stereo camera.
+        In addition, we provide the re-generated depth maps from CREStereo and the sky segmentations from ViT-Adapter.
+        The color and depth streams are captured with intrinsics of \(1091.517\) and a baseline of \(120.034 mm\).
+      </p>
+    </div>
+
+    <div id="maintext">
+      <h2>Zero-shot seamless results for BUPT Depth dataset</h2>
+      <div class="center">
+        <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./img/sm4depth/videos/buptvideo1.mov" type="video/mp4">
+        </video>
+        <!-- <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+                <source src="./img/sm4depth/videos/buptvideo2.mov" type="video/mp4">
+              </video> -->
+        <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./img/sm4depth/videos/buptvideo3.mov" type="video/mp4">
+        </video>
+        <!-- <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+                  <source src="./img/sm4depth/videos/buptvideo4.mov" type="video/mp4">
+                </video> -->
+        <!-- <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+                  <source src="./img/sm4depth/videos/buptvideo4.mov" type="video/mp4">
+                </video> -->
+        <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./img/sm4depth/videos/buptvideo5.mov" type="video/mp4">
+        </video>
+        <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./img/sm4depth/videos/buptvideo6.mov" type="video/mp4">
+        </video>
+        <!-- <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+                <source src="./img/sm4depth/videos/buptvideo7.mov" type="video/mp4">
+              </video> -->
+        <!-- <video class="center" poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+                <source src="./img/sm4depth/videos/buptvideo8.mov" type="video/mp4">
+              </video> -->
+      </div>
+      <img src="./img/sm4depth/buptdepth_result.jpg">
+      <h4>Our method is marked in red, ZoeDepth in blue, and Metric3D in green.</h4>
+    </div>
+
+    <div id="maintext">
+      <h2>Framework</h2>
+      <img src="./img/sm4depth/framework.jpg">
+    </div>
+
+
+  </div>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+  @inproceedings{liu2024sm4depth,
+    author    = {Liu, Yihao and Xue, Feng and Ming, Anlong and Zhao, Mingshuai and Ma, Huadong and Sebe, Nicu},
+    title     = {SM4Depth: Seamless Monocular Metric Depth Estimation across Multiple Cameras and Scenes by One Model},
+    booktitle = {Proceedings of the 32nd ACM International Conference on Multimedia (MM '24)},
+    year      = {2024},
+    publisher = {ACM}
+  }
+        </code></pre>
+    </div>
+  </section>
+
+</body>
+
+</html>
